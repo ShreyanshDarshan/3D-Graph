@@ -37,6 +37,14 @@ Vector3D Vector3D::crossProduct(Vector3D a)
 {
 	return Vector3D(Y*a.Z - Z * a.Y, Z*a.X - X * a.Z, X*a.Y - Y * a.X);
 }
+bool Vector3D::operator > (const Vector3D &a)
+{
+	return Y > a.Y;
+}
+bool Vector3D::operator < (const Vector3D &a)
+{
+	return Y < a.Y;
+}
 Vector3D::Vector3D()
 {
 	X = Y = Z = 0;

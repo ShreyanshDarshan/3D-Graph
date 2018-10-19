@@ -11,7 +11,7 @@
 #include "Triangle.h"
 #include "Camera.h"
 #include "Vector3D.h"
-
+#include <algorithm>
 #define dbl long double
 #define sizex 1000
 #define sizey 1000
@@ -118,6 +118,7 @@ int main()
 			{
 				dbl z = function(y, x,-t);
 				//cout << z << "\n";
+				//TODO: remove rendering by pixels and add rendering using triangles
 				auto o = onScreen[(int)(x*10 + 500)][(int)(y*10 + 500)] = ca.WorldToScreen(Vector3D(x, y, z));
 				//cout << o.X << " " << o.Y << " " << o.Z<< "\n";
 				s.put_pixel_3(o.X+ 500, o.Y + 500);
@@ -142,7 +143,7 @@ int main()
 			mesh[count].VertexToTriangle(onScreen, x, 1000 - 1, 0);
 			count++;
 		}
-
+		sort(mesh, mesh + 2 * (1000 - 1)*(1000 - 1));
 		s.Draw();
 		//..cout << "render" << "\n";
 		//cout << ca.Location.X << " " << ca.Location.Y << " " << ca.Location.Z << "\n";

@@ -21,6 +21,8 @@ public:
 	Vector3D Unit();
 	dbl dotProduct(Vector3D a);
 	Vector3D crossProduct(Vector3D a);
+	bool operator > (const Vector3D &a);
+	bool operator < (const Vector3D &a);
 	Vector3D();
 	Vector3D(dbl x, dbl y, dbl z);
 };
